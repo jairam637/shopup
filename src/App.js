@@ -27,7 +27,7 @@ function App() {
   };
 
   const handleSearch = () => {
-    const apiKey = process.env.giphyApiKey
+    const apiKey = process.env.GIPHY_API_KEY
     if (!apiKey) {
       alert('Please add Api key in env')
       return
