@@ -27,7 +27,7 @@ function App() {
   };
 
   const handleSearch = () => {
-    const apiKey = 'xDxMbX1l0bJtLotdGCJ7XJkVDesTj7ei'
+    const apiKey = process.env.giphyApiKey
     if (!apiKey) {
       alert('Please add Api key in env')
       return
@@ -57,7 +57,6 @@ function App() {
       handleSearch()
     }, 800);
   };
-  console.log(data)
 
   return (
     <React.Fragment>
