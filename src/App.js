@@ -27,7 +27,7 @@ function App() {
   };
 
   const handleSearch = () => {
-    const apiKey = 'xDxMbX1l0bJtLotdGCJ7XJkVDesTj7ei'
+    const apiKey = process.env.giphyApiKey
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${search}`)
       .then(res => res.json())
       .then(
