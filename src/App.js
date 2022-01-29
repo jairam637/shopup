@@ -27,12 +27,19 @@ function App() {
   };
 
   const handleSearch = () => {
-    const apiKey = process.env.giphyApiKey
+    const apiKey = 'xDxMbX1l0bJtLotdGCJ7XJkVDesTj7ei'
+    if (!apiKey) {
+      alert('Please add Api key in env')
+      return
+    }
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${search}`)
       .then(res => res.json())
       .then(
         (result) => {
-          setData(result)
+          console.log(result)
+          if (result?.meta.status === 200 && result?.data) {
+            setData(result)
+          }
         },
         (error) => {
           setData({ data: [] })
@@ -50,6 +57,7 @@ function App() {
       handleSearch()
     }, 800);
   };
+  console.log(data)
 
   return (
     <React.Fragment>
